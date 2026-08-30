@@ -1,13 +1,278 @@
-Git & GitHub --- Complete DevOps Study Notes, Lab Practice & Interview Questions
+<div align="center">
 
-Goal: Build strong practical Git/GitHub skills for Cloud/DevOps
-interviews and day-to-day DevOps work.
+🚀 Git & GitHub for DevOps
 
-This guide includes the topics from my handwritten notes, plus
-important missing topics, hands-on labs, real-world workflows,
-troubleshooting, and interview questions.
+Complete DevOps Study Notes • Hands-on Labs • Real-World Workflows • Interview Preparation
 
-1. What is Version Control?
+<p>
+  <img src="https://img.shields.io/badge/Git-Version%20Control-F05032?logo=git&logoColor=white" alt="Git">
+  <img src="https://img.shields.io/badge/GitHub-Collaboration-181717?logo=github&logoColor=white" alt="GitHub">
+  <img src="https://img.shields.io/badge/DevOps-Focused-0A66C2" alt="DevOps">
+  <img src="https://img.shields.io/badge/Level-Beginner%20to%20Advanced-8A2BE2" alt="Beginner to Advanced">
+  <img src="https://img.shields.io/badge/Hands--On-Labs-2EA44F" alt="Hands-on Labs">
+</p>
+
+</div>
+
+📖 About This Repository
+
+This repository is a structured Git & GitHub learning guide for Cloud/DevOps Engineers.
+
+It covers the journey from version-control fundamentals to practical Git workflows, GitHub collaboration, CI/CD integration, troubleshooting, security, hands-on labs, and interview preparation.
+
+🎯 Goal: Build strong practical Git/GitHub skills for Cloud/DevOps interviews and day-to-day DevOps work.
+
+What this guide covers
+
+✅ Git fundamentals and architecture
+
+✅ Essential Git commands
+
+✅ Branching, merging and conflict resolution
+
+✅ Rebase, cherry-pick, stash, reset, revert and reflog
+
+✅ GitHub repositories, remotes, forks and pull requests
+
+✅ SSH authentication and credential handling
+
+✅ GitHub Actions and CI/CD
+
+✅ Git + Docker + Terraform workflows
+
+✅ Branching strategies and release management
+
+✅ Git internals and troubleshooting
+
+✅ Hands-on labs
+
+✅ Real-world DevOps workflows
+
+✅ Interview questions and scenario-based preparation
+
+✅ 7-day practice plan and final checklist
+
+📚 Table of Contents
+
+01. What is Version Control?
+
+02. Git
+
+03. Git Architecture
+
+04. Git Installation & Initial Configuration
+
+05. Create a Local Git Repository
+
+06. Basic Git Workflow
+
+07. Git Commit
+
+08. Git Add
+
+09. Git Status
+
+10. Git Restore
+
+11. Git Reset
+
+12. Git Revert
+
+13. Git Reflog
+
+14. Git Branches
+
+15. Why Use Branches?
+
+16. Branch Merge
+
+17. Fast-Forward Merge
+
+18. Merge Conflict
+
+19. Git Rebase
+
+20. Interactive Rebase
+
+21. Cherry-Pick
+
+22. Git Stash
+
+23. Git Tag
+
+24. Git Show
+
+25. Git Log --- Important Options
+
+26. Git Diff
+
+27. Delete / Rename Files
+
+28. .gitignore
+
+29. Git Remote
+
+30. GitHub
+
+31. Create a GitHub Repository
+
+32. Clone a GitHub Repository
+
+33. Git Fetch
+
+34. Git Pull
+
+35. Git Push
+
+36. Push & Pull Operation --- Practical Flow
+
+37. Remote Tracking Branches
+
+38. GitHub Authentication
+
+39. SSH Authentication
+
+40. GitHub Pull Request --- PR
+
+41. Fork
+
+42. Fork vs Clone
+
+43. Upstream Remote
+
+44. GitHub Issues
+
+45. GitHub Actions
+
+46. GitHub Actions and DevOps
+
+47. GitHub Secrets
+
+48. GitHub Repository Best Practices
+
+49. README.md
+
+50. Git Branching Strategies
+
+51. Feature Flags
+
+52. Git Release
+
+53. Git Hooks
+
+54. Git Internals
+
+55. HEAD, Working Tree & Index
+
+56. Detached HEAD
+
+57. Git Blame
+
+58. Git Bisect
+
+59. Git Clean
+
+60. Git Maintenance Commands to Know
+
+61. Important Difference: Fetch vs Pull
+
+62. Important Difference: Pull vs Clone
+
+63. Important Difference: Git vs GitHub
+
+64. Important Difference: Merge vs Rebase
+
+65. Important Difference: Reset vs Revert
+
+66. Important Difference: Stash vs Commit
+
+67. Lab 1 --- Basic Git Repository
+
+68. Lab 2 --- Branching & Merge
+
+69. Lab 3 --- Merge Conflict
+
+70. Lab 4 --- Stash
+
+71. Lab 5 --- Reset, Revert & Reflog
+
+72. Lab 6 --- GitHub Remote
+
+73. Lab 7 --- Clone, Fetch & Pull
+
+74. Lab 8 --- GitHub Feature Branch & PR
+
+75. Lab 9 --- Fork & Upstream
+
+76. Lab 10 --- GitHub Actions CI
+
+77. Lab 11 --- Git + Docker
+
+78. Lab 12 --- Git + Terraform
+
+79. Lab 13 --- Real DevOps Git Workflow
+
+80. Lab 14 --- GitHub Actions + Docker
+
+81. Lab 15 --- Git Troubleshooting
+
+82. Professional Git Commit Workflow
+
+83. Before Every Push
+
+84. Common Git Mistakes
+
+85. Interview Questions --- Basic
+
+86. Interview Questions --- Intermediate
+
+87. Interview Questions --- GitHub
+
+88. Interview Questions --- Scenario Based
+
+89. DevOps Interview Scenario
+
+90. Must-Know Commands Cheat Sheet
+
+91. 7-Day Git & GitHub Practice Plan
+
+92. Final Interview Checklist
+
+93. The One Workflow to Remember
+
+94. Important Security Rules
+
+95. Final Goal
+
+🧭 Learning Path
+
+Version Control
+      ↓
+     Git
+      ↓
+Git Architecture
+      ↓
+Basic Commands
+      ↓
+Branching & Merging
+      ↓
+Rebase / Reset / Revert / Reflog
+      ↓
+GitHub & Remote Repositories
+      ↓
+Pull Requests & Collaboration
+      ↓
+GitHub Actions / CI/CD
+      ↓
+Docker / Terraform Integration
+      ↓
+Troubleshooting & Security
+      ↓
+Hands-on Labs
+      ↓
+DevOps Interview Preparation
+
+01. What is Version Control?
 
 Version Control System (VCS) is a tool used to track changes to
 files over time.
@@ -64,7 +329,7 @@ Work can continue without network access.
 
 Changes can later be pushed/pulled between repositories.
 
-2. Git
+02. Git
 
 Git is a distributed version control system used to track source-code
 changes and collaborate on software projects.
@@ -94,24 +359,31 @@ Maintain release history.
 
 Roll back changes.
 
-3. Git Architecture
+03. Git Architecture
 
 A basic Git workflow can be understood as:
 
 Working Directory
-       |
-       | git add
-       v
+
+|
+| git add
+v
+
 Staging Area
-       |
-       | git commit
-       v
+
+|
+| git commit
+v
+
 Local Repository
-       |
-       | git push
-       v
+
+|
+| git push
+v
+
 Remote Repository
-   (GitHub/GitLab/etc.)
+
+(GitHub/GitLab/etc.)
 
 Working Directory
 
@@ -131,7 +403,7 @@ Remote Repository
 
 A repository hosted on a remote service such as GitHub.
 
-4. Git Installation & Initial Configuration
+04. Git Installation & Initial Configuration
 
 Check Git:
 
@@ -158,7 +430,7 @@ Set default branch:
 
 git config --global init.defaultBranch main
 
-5. Create a Local Git Repository
+05. Create a Local Git Repository
 
 Create a project:
 
@@ -177,7 +449,7 @@ This creates a hidden .git directory.
 
 ls -la
 
-6. Basic Git Workflow
+06. Basic Git Workflow
 
 Create a file:
 
@@ -215,7 +487,7 @@ View staged changes:
 
 git diff --staged
 
-7. Git Commit
+07. Git Commit
 
 A commit is a snapshot of staged changes.
 
@@ -236,7 +508,7 @@ done
 
 A commit should ideally represent one logical change.
 
-8. Git Add
+08. Git Add
 
 Add one file:
 
@@ -255,9 +527,10 @@ Interactive staging:
 git add -p
 
 git add -p is useful when only part of a file should be included in a
+
 commit.
 
-9. Git Status
+09. Git Status
 
 git status
 
@@ -392,12 +665,12 @@ git branch -D feature-login
 Example:
 
 main
- |
- +--- feature/login
- |
- +--- feature/payment
- |
- +--- bugfix/api
+|
++--- feature/login
+|
++--- feature/payment
+|
++--- bugfix/api
 
 Branches allow developers to work independently without directly
 changing main.
@@ -421,10 +694,10 @@ release/*
 Suppose:
 
 main
- |
- A---B
-      \
-       C---D   feature
+|
+A---B
+
+C---D   feature
 
 Switch to main:
 
@@ -437,8 +710,8 @@ git merge feature
 After merge:
 
 A---B-------E
-     \     /
-      C---D
+\     /
+C---D
 
 A merge commit may be created depending on the history and merge
 strategy.
@@ -448,8 +721,8 @@ strategy.
 If the target branch has not moved:
 
 A---B---C main
-         \
-          D---E feature
+
+D---E feature
 
 After fast-forward:
 
@@ -473,11 +746,9 @@ git status
 
 Open the conflicted file:
 
-<<<<<<< HEAD
-current branch changes
-=======
 incoming branch changes
->>>>>>> feature
+
+feature
 
 Edit the file and keep the correct content.
 
@@ -511,8 +782,8 @@ Rebase moves/replays commits onto another base.
 Example:
 
 A---B---C main
-     \
-      D---E feature
+
+D---E feature
 
 Run:
 
@@ -715,10 +986,10 @@ Example:
 .env
 *.log
 node_modules/
-__pycache__/
+pycache/
 .terraform/
 *.tfstate
-*.tfstate.*
+.tfstate.
 .vscode/
 .idea/
 .DS_Store
@@ -827,6 +1098,7 @@ Fetch is useful for reviewing remote changes before integrating them.
 34. Git Pull
 
 git pull normally performs a fetch followed by integration of the
+
 fetched changes.
 
 git pull
@@ -868,22 +1140,22 @@ git push origin --delete feature/login
 36. Push & Pull Operation --- Practical Flow
 
 Developer A
-    |
-    | git push
-    v
+|
+| git push
+v
 GitHub Repository
-    ^
-    | git pull/fetch
-    |
+^
+| git pull/fetch
+|
 Developer B
 
 If another developer pushes first:
 
 Your local branch
-       |
-       | git push
-       X  rejected
-       |
+|
+| git push
+X  rejected
+|
 Remote contains newer commits
 
 Then:
@@ -990,23 +1262,23 @@ into another.
 Typical workflow:
 
 main
- |
- +--- feature/login
-          |
-          | commits
-          v
-       Push branch
-          |
-          v
-     Open Pull Request
-          |
-       Code Review
-          |
-       CI Checks
-          |
-       Approval
-          |
-        Merge
+|
++--- feature/login
+|
+| commits
+v
+Push branch
+|
+v
+Open Pull Request
+|
+Code Review
+|
+CI Checks
+|
+Approval
+|
+Merge
 
 A PR can include:
 
@@ -1032,19 +1304,19 @@ your account.
 Typical open-source workflow:
 
 Original Repository
-       |
-      Fork
-       v
+|
+Fork
+v
 Your GitHub Repository
-       |
-     Clone
-       |
-     Modify
-       |
-      Push
-       |
-    Pull Request
-       |
+|
+Clone
+|
+Modify
+|
+Push
+|
+Pull Request
+|
 Original Repository
 
 A fork is different from simply cloning a repository.
@@ -1115,17 +1387,17 @@ GitHub Actions provides CI/CD automation.
 Example workflow:
 
 Developer pushes code
-        |
-        v
+|
+v
 GitHub Actions
-        |
-   +----+----+
-   |         |
-  Build     Test
-   |         |
-   +----+----+
-        |
-      Deploy
+|
++----+----+
+|         |
+Build     Test
+|         |
++----+----+
+|
+Deploy
 
 Workflow files are normally stored under:
 
@@ -1136,21 +1408,30 @@ Example:
 name: CI
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
+
+push:
+
+branches:
+
+- main
+
+pull_request:
 
 jobs:
-  build:
-    runs-on: ubuntu-latest
 
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+build:
 
-      - name: Run tests
-        run: echo "Run tests here"
+runs-on: ubuntu-latest
+
+steps:
+
+- name: Checkout
+
+uses: actions/checkout@v4
+
+- name: Run tests
+
+run: echo "Run tests here"
 
 46. GitHub Actions and DevOps
 
@@ -1159,22 +1440,22 @@ GitHub can become the trigger/source for a CI/CD pipeline.
 Example:
 
 Git Push
-   |
-   v
+|
+v
 GitHub
-   |
-   v
+|
+v
 GitHub Actions
-   |
-   +--> Build
-   |
-   +--> Test
-   |
-   +--> Docker Build
-   |
-   +--> Push Image
-   |
-   +--> Deploy
+|
++--> Build
+|
++--> Test
+|
++--> Docker Build
+|
++--> Push Image
+|
++--> Deploy
 
 GitHub Actions can also interact with:
 
@@ -1210,7 +1491,8 @@ Access secrets in Actions using GitHub's secrets context.
 Example:
 
 env:
-  API_TOKEN: ${{ secrets.API_TOKEN }}
+
+API_TOKEN: ${{ secrets.API_TOKEN }}
 
 Do not print secrets in logs.
 
@@ -1276,10 +1558,10 @@ Author/contact information.
 Feature Branch Workflow
 
 main
- |
- +--- feature/A
- |
- +--- feature/B
+|
++--- feature/A
+|
++--- feature/B
 
 Developers create feature branches and merge through PRs.
 
@@ -1288,9 +1570,13 @@ Git Flow
 Common branch types:
 
 main
+
 develop
+
 feature/*
+
 release/*
+
 hotfix/*
 
 Trunk-Based Development
@@ -1309,9 +1595,11 @@ deploying completely different code.
 Concept:
 
 if feature_enabled:
-    new_feature()
+
+new_feature()
 else:
-    old_feature()
+
+old_feature()
 
 Useful for:
 
@@ -1328,20 +1616,21 @@ Separating deployment from release.
 Typical release flow:
 
 Feature branches
-       |
-       v
+|
+v
 Pull Requests
-       |
-       v
+|
+v
+
 main
-       |
-       v
+|
+v
 Tag v1.0.0
-       |
-       v
+|
+v
 CI/CD
-       |
-       v
+|
+v
 Production
 
 Example:
@@ -1412,13 +1701,17 @@ git show HEAD
 Think of:
 
 Working Tree
-     |
- git add
-     v
+|
+
+git add
+
+v
 Index / Staging Area
-     |
- git commit
-     v
+|
+
+git commit
+
+v
 Repository
 
 HEAD points to the current checked-out commit.
@@ -1886,21 +2179,28 @@ Example:
 name: CI
 
 on:
-  push:
-    branches: [main]
-  pull_request:
+
+push:
+
+branches: [main]
+pull_request:
 
 jobs:
-  test:
-    runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v4
+test:
 
-      - name: Run test
-        run: |
-          echo "Running tests"
-          echo "CI passed"
+runs-on: ubuntu-latest
+
+steps:
+
+- uses: actions/checkout@v4
+
+- name: Run test
+
+run: |
+
+echo "Running tests"
+echo "CI passed"
 
 Push it and inspect the Actions tab on GitHub.
 
@@ -1939,7 +2239,7 @@ Important:
 
 .terraform/
 *.tfstate
-*.tfstate.*
+.tfstate.
 *.tfvars
 
 Do not commit cloud credentials or sensitive Terraform variable values.
@@ -1955,12 +2255,12 @@ git push
 Simulate a company workflow:
 
 main
- |
- +--- feature/vpc
- |
- +--- feature/docker
- |
- +--- feature/ci
+|
++--- feature/vpc
+|
++--- feature/docker
+|
++--- feature/ci
 
 For each feature:
 
@@ -1991,17 +2291,17 @@ Repeat until the process becomes natural.
 Build a workflow:
 
 Git push
-   |
-   v
+|
+v
 GitHub Actions
-   |
-   +--> Checkout
-   |
-   +--> Test
-   |
-   +--> Docker Build
-   |
-   +--> Docker Image
+|
++--> Checkout
+|
++--> Test
+|
++--> Docker Build
+|
++--> Docker Image
 
 Extend the workflow to:
 
@@ -2073,7 +2373,7 @@ git switch main
 git pull --rebase
 git switch -c feature/my-change
 
-# edit files
+edit files
 
 git diff
 git add -p
@@ -2084,13 +2384,13 @@ git push -u origin feature/my-change
 Then:
 
 Pull Request
-   ↓
+↓
 Review
-   ↓
+↓
 CI
-   ↓
+↓
 Approval
-   ↓
+↓
 Merge
 
 83. Before Every Push
@@ -2368,33 +2668,33 @@ DevOps pipeline.
 Answer
 
 Developer
-   |
-   | git push
-   v
+|
+| git push
+v
 GitHub
-   |
-   v
+|
+v
 Pull Request
-   |
-   v
+|
+v
 CI Pipeline
-   |
-   +--> Checkout
-   +--> Lint
-   +--> Unit Test
-   +--> Security Scan
-   +--> Build
-   +--> Docker Build
-   |
-   v
+|
++--> Checkout
++--> Lint
++--> Unit Test
++--> Security Scan
++--> Build
++--> Docker Build
+|
+v
 Artifact / Container Registry
-   |
-   v
+|
+v
 Deployment
-   |
-   +--> Dev
-   +--> Staging
-   +--> Production
+|
++--> Dev
++--> Staging
++--> Production
 
 Git is therefore an important foundation for CI/CD.
 
@@ -2629,29 +2929,29 @@ Git in a DevOps CI/CD pipeline.
 Then perform the full workflow from memory:
 
 clone
-  ↓
+↓
 branch
-  ↓
+↓
 edit
-  ↓
+↓
 diff
-  ↓
+↓
 add
-  ↓
+↓
 commit
-  ↓
+↓
 push
-  ↓
+↓
 PR
-  ↓
+↓
 CI
-  ↓
+↓
 review
-  ↓
+↓
 merge
-  ↓
+↓
 delete branch
-  ↓
+↓
 pull latest main
 
 92. Final Interview Checklist
@@ -2749,56 +3049,70 @@ Recovering lost commits with reflog.
 
 93. The One Workflow to Remember
 
-                    GITHUB
-                       |
-                 Pull Request
-                       |
-                 Code Review + CI
-                       |
+GITHUB
+|
+Pull Request
+|
+Code Review + CI
+|
 Developer ---> feature branch
-   |                   |
-   | git add           |
-   | git commit        |
-   | git push          |
-   |                   v
-   +--------------> Remote Branch
-                       |
-                       v
-                     MERGE
-                       |
-                       v
-                      MAIN
-                       |
-                       v
-                    RELEASE
-                       |
-                       v
-                 DEPLOYMENT
+|                   |
+| git add           |
+| git commit        |
+| git push          |
+|                   v
++--------------> Remote Branch
+|
+v
+MERGE
+|
+v
+MAIN
+|
+v
+RELEASE
+|
+v
+DEPLOYMENT
 
 Core mental model
 
 EDIT
- ↓
+↓
+
 git status
- ↓
+
+↓
+
 git diff
- ↓
+
+↓
+
 git add
- ↓
+
+↓
+
 git diff --staged
- ↓
+
+↓
+
 git commit
- ↓
+
+↓
+
 git fetch / git pull
- ↓
+
+↓
+
 git push
- ↓
+
+↓
 PULL REQUEST
- ↓
+↓
 CI + REVIEW
- ↓
+↓
 MERGE
- ↓
+↓
 DEPLOY
 
 94. Important Security Rules
@@ -2832,12 +3146,54 @@ list of commands.
 You should be able to explain the complete engineering workflow:
 
 Source Code
+↓
+
+Git
+↓
+GitHub
+↓
+Branch
+↓
+Commit
+↓
+Push
+↓
+Pull Request
+↓
+Code Review
+↓
+CI
+↓
+Build/Test/Security Scan
+↓
+Artifact/Docker Image
+↓
+CD
+↓
+Cloud/Kubernetes/Production
+
+The target is:
+
+Understand the concept → run the command → troubleshoot the failure
+→ explain it in an interview → use it in a real DevOps project.
+
+🏆 Final Takeaway
+
+For a Cloud/DevOps Engineer, Git should not be treated as only a list of commands.
+
+You should be able to:
+
+Understand the concept → run the command → troubleshoot the failure → explain it in an interview → use it in a real DevOps project.
+
+🚀 DevOps End-to-End Flow
+
+Source Code
     ↓
 Git
     ↓
 GitHub
     ↓
-Branch
+Feature Branch
     ↓
 Commit
     ↓
@@ -2849,15 +3205,26 @@ Code Review
     ↓
 CI
     ↓
-Build/Test/Security Scan
+Build / Test / Security Scan
     ↓
-Artifact/Docker Image
+Artifact / Docker Image
     ↓
 CD
     ↓
-Cloud/Kubernetes/Production
+Cloud / Kubernetes / Production
 
-The target is:
+👨‍💻 Author
 
-Understand the concept → run the command → troubleshoot the failure
-→ explain it in an interview → use it in a real DevOps project.
+Mohammed Rinas
+
+Cloud / DevOps Engineer — Learning, Building & Practicing
+
+This repository is maintained as a practical study resource for Git, GitHub and DevOps workflows.
+
+<div align="center">
+
+⭐ If this repository helps you, consider giving it a star!
+
+Learn → Practice → Troubleshoot → Automate → Deploy
+
+</div>
