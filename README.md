@@ -16,263 +16,103 @@ Complete DevOps Study Notes • Hands-on Labs • Real-World Workflows • Inter
 
 📖 About This Repository
 
-This repository is a structured Git & GitHub learning guide for Cloud/DevOps Engineers.
-
-It covers the journey from version-control fundamentals to practical Git workflows, GitHub collaboration, CI/CD integration, troubleshooting, security, hands-on labs, and interview preparation.
-
-🎯 Goal: Build strong practical Git/GitHub skills for Cloud/DevOps interviews and day-to-day DevOps work.
+A structured Git & GitHub learning guide for Cloud/DevOps Engineers, from version-control fundamentals to real-world Git workflows and interview preparation.
 
 What this guide covers
 
 ✅ Git fundamentals and architecture
 
-✅ Essential Git commands
+✅ Essential Git commands and daily workflows
 
-✅ Branching, merging and conflict resolution
-
-✅ Rebase, cherry-pick, stash, reset, revert and reflog
+✅ Branching, merging, rebase, reset, revert, stash and reflog
 
 ✅ GitHub repositories, remotes, forks and pull requests
 
-✅ SSH authentication and credential handling
+✅ SSH authentication and repository security
 
-✅ GitHub Actions and CI/CD
+✅ GitHub Actions and CI/CD workflows
 
-✅ Git + Docker + Terraform workflows
+✅ Git with Docker and Terraform
 
-✅ Branching strategies and release management
+✅ Troubleshooting, hands-on labs and interview scenarios
 
-✅ Git internals and troubleshooting
-
-✅ Hands-on labs
-
-✅ Real-world DevOps workflows
-
-✅ Interview questions and scenario-based preparation
-
-✅ 7-day practice plan and final checklist
+🎯 Goal: Build strong practical Git/GitHub skills for Cloud/DevOps interviews and day-to-day DevOps work.
 
 📚 Table of Contents
 
-01. What is Version Control?
+Git Fundamentals
 
-02. Git
+What is Version Control?
 
-03. Git Architecture
+Git
 
-04. Git Installation & Initial Configuration
+Git Architecture
 
-05. Create a Local Git Repository
+Installation & Configuration
 
-06. Basic Git Workflow
+Local Repository & Basic Workflow
 
-07. Git Commit
+Core Git Commands
 
-08. Git Add
+Commit, Add & Status
 
-09. Git Status
+Restore, Reset, Revert & Reflog
 
-10. Git Restore
+Branches, Merge & Conflicts
 
-11. Git Reset
+Rebase, Cherry-Pick & Stash
 
-12. Git Revert
+Tags, Log, Diff & File Operations
 
-13. Git Reflog
+.gitignore & Remotes
 
-14. Git Branches
+GitHub & Collaboration
 
-15. Why Use Branches?
+GitHub Repository
 
-16. Branch Merge
+Clone, Fetch, Pull & Push
 
-17. Fast-Forward Merge
+Authentication & SSH
 
-18. Merge Conflict
+Pull Requests, Forks & Upstream
 
-19. Git Rebase
+Issues & GitHub Actions
 
-20. Interactive Rebase
+DevOps & Advanced Git
 
-21. Cherry-Pick
+GitHub Actions, Secrets & Best Practices
 
-22. Git Stash
+Branching Strategies & Releases
 
-23. Git Tag
+Git Internals & Advanced Commands
 
-24. Git Show
+Important Git Differences
 
-25. Git Log --- Important Options
+Hands-on Labs
 
-26. Git Diff
+Labs 1–5: Core Git
 
-27. Delete / Rename Files
+Labs 6–10: GitHub & CI
 
-28. .gitignore
+Labs 11–15: DevOps Workflows
 
-29. Git Remote
+Interview Preparation
 
-30. GitHub
+Basic, Intermediate & GitHub Questions
 
-31. Create a GitHub Repository
+Scenario-Based Questions
 
-32. Clone a GitHub Repository
+Cheat Sheet & Practice Plan
 
-33. Git Fetch
+Final Checklist & Workflow
 
-34. Git Pull
-
-35. Git Push
-
-36. Push & Pull Operation --- Practical Flow
-
-37. Remote Tracking Branches
-
-38. GitHub Authentication
-
-39. SSH Authentication
-
-40. GitHub Pull Request --- PR
-
-41. Fork
-
-42. Fork vs Clone
-
-43. Upstream Remote
-
-44. GitHub Issues
-
-45. GitHub Actions
-
-46. GitHub Actions and DevOps
-
-47. GitHub Secrets
-
-48. GitHub Repository Best Practices
-
-49. README.md
-
-50. Git Branching Strategies
-
-51. Feature Flags
-
-52. Git Release
-
-53. Git Hooks
-
-54. Git Internals
-
-55. HEAD, Working Tree & Index
-
-56. Detached HEAD
-
-57. Git Blame
-
-58. Git Bisect
-
-59. Git Clean
-
-60. Git Maintenance Commands to Know
-
-61. Important Difference: Fetch vs Pull
-
-62. Important Difference: Pull vs Clone
-
-63. Important Difference: Git vs GitHub
-
-64. Important Difference: Merge vs Rebase
-
-65. Important Difference: Reset vs Revert
-
-66. Important Difference: Stash vs Commit
-
-67. Lab 1 --- Basic Git Repository
-
-68. Lab 2 --- Branching & Merge
-
-69. Lab 3 --- Merge Conflict
-
-70. Lab 4 --- Stash
-
-71. Lab 5 --- Reset, Revert & Reflog
-
-72. Lab 6 --- GitHub Remote
-
-73. Lab 7 --- Clone, Fetch & Pull
-
-74. Lab 8 --- GitHub Feature Branch & PR
-
-75. Lab 9 --- Fork & Upstream
-
-76. Lab 10 --- GitHub Actions CI
-
-77. Lab 11 --- Git + Docker
-
-78. Lab 12 --- Git + Terraform
-
-79. Lab 13 --- Real DevOps Git Workflow
-
-80. Lab 14 --- GitHub Actions + Docker
-
-81. Lab 15 --- Git Troubleshooting
-
-82. Professional Git Commit Workflow
-
-83. Before Every Push
-
-84. Common Git Mistakes
-
-85. Interview Questions --- Basic
-
-86. Interview Questions --- Intermediate
-
-87. Interview Questions --- GitHub
-
-88. Interview Questions --- Scenario Based
-
-89. DevOps Interview Scenario
-
-90. Must-Know Commands Cheat Sheet
-
-91. 7-Day Git & GitHub Practice Plan
-
-92. Final Interview Checklist
-
-93. The One Workflow to Remember
-
-94. Important Security Rules
-
-95. Final Goal
+Security & Final Goal
 
 🧭 Learning Path
 
-Version Control
-      ↓
-     Git
-      ↓
-Git Architecture
-      ↓
-Basic Commands
-      ↓
-Branching & Merging
-      ↓
-Rebase / Reset / Revert / Reflog
-      ↓
-GitHub & Remote Repositories
-      ↓
-Pull Requests & Collaboration
-      ↓
-GitHub Actions / CI/CD
-      ↓
-Docker / Terraform Integration
-      ↓
-Troubleshooting & Security
-      ↓
-Hands-on Labs
-      ↓
-DevOps Interview Preparation
+Version Control → Git → Architecture → Commands → Branching → Merging → Rebase → GitHub → Pull Requests → GitHub Actions / CI/CD → Docker / Terraform → Troubleshooting → Labs → Interview Preparation
 
-01. What is Version Control?
+1. What is Version Control?
 
 Version Control System (VCS) is a tool used to track changes to
 files over time.
@@ -329,7 +169,7 @@ Work can continue without network access.
 
 Changes can later be pushed/pulled between repositories.
 
-02. Git
+2. Git
 
 Git is a distributed version control system used to track source-code
 changes and collaborate on software projects.
@@ -359,7 +199,7 @@ Maintain release history.
 
 Roll back changes.
 
-03. Git Architecture
+3. Git Architecture
 
 A basic Git workflow can be understood as:
 
@@ -403,7 +243,7 @@ Remote Repository
 
 A repository hosted on a remote service such as GitHub.
 
-04. Git Installation & Initial Configuration
+4. Git Installation & Initial Configuration
 
 Check Git:
 
@@ -430,7 +270,7 @@ Set default branch:
 
 git config --global init.defaultBranch main
 
-05. Create a Local Git Repository
+5. Create a Local Git Repository
 
 Create a project:
 
@@ -449,7 +289,7 @@ This creates a hidden .git directory.
 
 ls -la
 
-06. Basic Git Workflow
+6. Basic Git Workflow
 
 Create a file:
 
@@ -487,7 +327,7 @@ View staged changes:
 
 git diff --staged
 
-07. Git Commit
+7. Git Commit
 
 A commit is a snapshot of staged changes.
 
@@ -508,7 +348,7 @@ done
 
 A commit should ideally represent one logical change.
 
-08. Git Add
+8. Git Add
 
 Add one file:
 
@@ -530,7 +370,7 @@ git add -p is useful when only part of a file should be included in a
 
 commit.
 
-09. Git Status
+9. Git Status
 
 git status
 
