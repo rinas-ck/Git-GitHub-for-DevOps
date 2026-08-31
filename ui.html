@@ -1,0 +1,593 @@
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
+
+app = FastAPI()
+
+HTML = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>DevOps Forge</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+:root{
+  --bg:#050810;
+  --surface:#0b0f1a;
+  --card:#0f1525;
+  --border:#1a2240;
+  --green:#00ff88;
+  --blue:#00b4ff;
+  --orange:#ff6b35;
+  --purple:#b06dff;
+  --text:#e8eef8;
+  --muted:#5a6a8a;
+  --mono:'Space Mono',monospace;
+  --display:'Bebas Neue',sans-serif;
+  --body:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg);color:var(--text);font-family:var(--body);overflow-x:hidden;}
+
+/* grid bg */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(0,255,136,.03) 1px,transparent 1px),linear-gradient(90deg,rgba(0,255,136,.03) 1px,transparent 1px);
+  background-size:50px 50px;pointer-events:none;z-index:0;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:16px 48px;
+  background:rgba(5,8,16,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--border);
+}
+.nav-logo{font-family:var(--display);font-size:28px;letter-spacing:2px;color:var(--green);}
+.nav-links{display:flex;gap:32px;}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:13px;letter-spacing:1px;text-transform:uppercase;transition:.2s;}
+.nav-links a:hover{color:var(--text);}
+.nav-badge{font-family:var(--mono);font-size:11px;padding:4px 12px;border:1px solid var(--green);border-radius:20px;color:var(--green);}
+
+/* HERO */
+.hero{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;}
+.hero-tag{font-family:var(--mono);font-size:11px;letter-spacing:3px;color:var(--green);text-transform:uppercase;margin-bottom:24px;
+  display:inline-flex;align-items:center;gap:8px;}
+.hero-tag::before{content:'';width:24px;height:1px;background:var(--green);}
+.hero-tag::after{content:'';width:24px;height:1px;background:var(--green);}
+.hero h1{font-family:var(--display);font-size:clamp(72px,12vw,160px);line-height:.9;letter-spacing:4px;margin-bottom:8px;}
+.hero h1 .line1{color:var(--text);}
+.hero h1 .line2{color:var(--green);-webkit-text-stroke:2px var(--green);color:transparent;}
+.hero-sub{font-size:16px;color:var(--muted);max-width:560px;line-height:1.8;margin:32px auto;}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-top:40px;}
+.btn{padding:14px 32px;border-radius:4px;font-family:var(--mono);font-size:13px;font-weight:700;cursor:pointer;transition:.2s;text-decoration:none;letter-spacing:1px;}
+.btn-primary{background:var(--green);color:#000;border:none;}
+.btn-primary:hover{background:#00e67a;transform:translateY(-2px);box-shadow:0 8px 32px rgba(0,255,136,.3);}
+.btn-outline{background:transparent;color:var(--text);border:1px solid var(--border);}
+.btn-outline:hover{border-color:var(--green);color:var(--green);}
+
+/* STATS BAR */
+.stats{position:relative;z-index:1;display:flex;justify-content:center;gap:0;flex-wrap:wrap;border-top:1px solid var(--border);border-bottom:1px solid var(--border);background:var(--surface);}
+.stat{padding:32px 48px;text-align:center;border-right:1px solid var(--border);}
+.stat:last-child{border-right:none;}
+.stat-num{font-family:var(--display);font-size:48px;color:var(--green);letter-spacing:2px;}
+.stat-label{font-size:12px;color:var(--muted);letter-spacing:2px;text-transform:uppercase;margin-top:4px;}
+
+/* SECTION */
+section{position:relative;z-index:1;padding:100px 24px;}
+.container{max-width:1100px;margin:0 auto;}
+.section-tag{font-family:var(--mono);font-size:11px;letter-spacing:3px;color:var(--green);text-transform:uppercase;margin-bottom:16px;}
+.section-title{font-family:var(--display);font-size:clamp(40px,6vw,72px);letter-spacing:2px;margin-bottom:24px;line-height:1;}
+.section-sub{color:var(--muted);font-size:15px;line-height:1.8;max-width:600px;}
+
+/* WHAT IS DEVOPS */
+.devops-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:60px;background:var(--border);}
+.devops-card{background:var(--card);padding:40px;transition:.3s;}
+.devops-card:hover{background:#131929;}
+.devops-icon{font-size:32px;margin-bottom:16px;}
+.devops-card h3{font-family:var(--display);font-size:28px;letter-spacing:1px;margin-bottom:12px;color:var(--text);}
+.devops-card p{color:var(--muted);font-size:14px;line-height:1.8;}
+
+/* PIPELINE VISUAL */
+.pipeline{display:flex;align-items:center;gap:0;margin-top:60px;overflow-x:auto;padding-bottom:16px;}
+.pipe-step{flex-shrink:0;background:var(--card);border:1px solid var(--border);padding:24px 28px;min-width:160px;position:relative;transition:.3s;}
+.pipe-step:hover{border-color:var(--green);transform:translateY(-4px);}
+.pipe-arrow{flex-shrink:0;color:var(--green);font-size:20px;padding:0 8px;font-family:var(--mono);}
+.pipe-num{font-family:var(--mono);font-size:11px;color:var(--green);margin-bottom:8px;}
+.pipe-name{font-family:var(--display);font-size:22px;letter-spacing:1px;}
+.pipe-desc{font-size:12px;color:var(--muted);margin-top:6px;line-height:1.6;}
+
+/* STEPS - HOW TO USE */
+.steps{margin-top:60px;display:flex;flex-direction:column;gap:2px;}
+.step{display:grid;grid-template-columns:80px 1fr;gap:0;background:var(--card);border:1px solid var(--border);overflow:hidden;transition:.3s;}
+.step:hover{border-color:var(--green);}
+.step-num{background:var(--border);display:flex;align-items:center;justify-content:center;font-family:var(--display);font-size:48px;color:var(--green);padding:32px;}
+.step-body{padding:32px;}
+.step-title{font-family:var(--display);font-size:28px;letter-spacing:1px;margin-bottom:8px;}
+.step-desc{color:var(--muted);font-size:14px;line-height:1.8;margin-bottom:16px;}
+.code-block{background:var(--bg);border:1px solid var(--border);border-radius:4px;padding:16px;font-family:var(--mono);font-size:12px;line-height:1.8;overflow-x:auto;}
+.code-block .comment{color:var(--muted);}
+.code-block .cmd{color:var(--green);}
+.code-block .flag{color:var(--blue);}
+.code-block .val{color:var(--orange);}
+.step-tag{display:inline-block;font-family:var(--mono);font-size:10px;padding:3px 10px;border-radius:20px;margin-bottom:12px;letter-spacing:1px;}
+.tag-docker{background:rgba(0,180,255,.1);color:var(--blue);border:1px solid rgba(0,180,255,.2);}
+.tag-k8s{background:rgba(176,109,255,.1);color:var(--purple);border:1px solid rgba(176,109,255,.2);}
+.tag-terraform{background:rgba(255,107,53,.1);color:var(--orange);border:1px solid rgba(255,107,53,.2);}
+.tag-cicd{background:rgba(0,255,136,.1);color:var(--green);border:1px solid rgba(0,255,136,.2);}
+
+/* TOOLS GRID */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:2px;margin-top:60px;background:var(--border);}
+.tool-card{background:var(--card);padding:32px 24px;text-align:center;transition:.3s;cursor:default;}
+.tool-card:hover{background:#131929;transform:translateY(-4px);}
+.tool-icon{font-size:36px;margin-bottom:12px;}
+.tool-name{font-family:var(--display);font-size:22px;letter-spacing:1px;margin-bottom:6px;}
+.tool-desc{font-size:12px;color:var(--muted);line-height:1.6;}
+.tool-badge{font-family:var(--mono);font-size:10px;padding:3px 8px;border-radius:3px;margin-top:8px;display:inline-block;}
+
+/* CONCEPTS */
+.concepts{display:grid;grid-template-columns:1fr 1fr 1fr;gap:2px;margin-top:60px;background:var(--border);}
+.concept{background:var(--card);padding:40px 32px;}
+.concept-letter{font-family:var(--display);font-size:80px;line-height:1;margin-bottom:12px;}
+.concept h3{font-family:var(--display);font-size:28px;letter-spacing:1px;margin-bottom:12px;}
+.concept p{color:var(--muted);font-size:13px;line-height:1.8;}
+
+/* CHEATSHEET */
+.cheatsheet{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-top:60px;}
+.cheat-group{background:var(--card);border:1px solid var(--border);padding:28px;}
+.cheat-group h3{font-family:var(--display);font-size:22px;letter-spacing:1px;margin-bottom:20px;color:var(--green);}
+.cheat-item{display:flex;flex-direction:column;gap:4px;padding:10px 0;border-bottom:1px solid var(--border);}
+.cheat-item:last-child{border-bottom:none;}
+.cheat-cmd{font-family:var(--mono);font-size:12px;color:var(--blue);}
+.cheat-desc{font-size:12px;color:var(--muted);}
+
+/* FOOTER */
+footer{position:relative;z-index:1;background:var(--surface);border-top:1px solid var(--border);padding:48px;text-align:center;}
+.footer-logo{font-family:var(--display);font-size:40px;color:var(--green);letter-spacing:3px;margin-bottom:12px;}
+footer p{color:var(--muted);font-size:13px;}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.hero>*{animation:fadeUp .6s ease both;}
+.hero-tag{animation-delay:.1s;}
+.hero h1{animation-delay:.2s;}
+.hero-sub{animation-delay:.3s;}
+.hero-btns{animation-delay:.4s;}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:6px;height:6px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+
+@media(max-width:768px){
+  nav{padding:16px 24px;}
+  .nav-links{display:none;}
+  .devops-grid,.concepts{grid-template-columns:1fr;}
+  .cheatsheet{grid-template-columns:1fr;}
+  .stat{padding:24px;}
+  .step{grid-template-columns:60px 1fr;}
+  .step-num{font-size:32px;padding:24px 16px;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">DEVOPS FORGE</div>
+  <div class="nav-links">
+    <a href="#what">What is DevOps</a>
+    <a href="#pipeline">Pipeline</a>
+    <a href="#howto">How to Use</a>
+    <a href="#tools">Tools</a>
+    <a href="#cheatsheet">Cheatsheet</a>
+  </div>
+  <div class="nav-badge">LIVE ON EKS ⚡</div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-tag">Your DevOps Learning Platform</div>
+  <h1>
+    <div class="line1">DEVOPS</div>
+    <div class="line2">FORGE</div>
+  </h1>
+  <p class="hero-sub">Generate production-ready DevOps configs, learn every tool in the stack, and deploy real infrastructure on AWS — step by step.</p>
+  <div class="hero-btns">
+    <a href="#howto" class="btn btn-primary">▶ Get Started</a>
+    <a href="#tools" class="btn btn-outline">Explore Tools →</a>
+  </div>
+</div>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="stat"><div class="stat-num">8+</div><div class="stat-label">DevOps Tools</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">Cloud Providers</div></div>
+  <div class="stat"><div class="stat-num">4</div><div class="stat-label">CI/CD Platforms</div></div>
+  <div class="stat"><div class="stat-num">∞</div><div class="stat-label">Things to Learn</div></div>
+</div>
+
+<!-- WHAT IS DEVOPS -->
+<section id="what">
+  <div class="container">
+    <div class="section-tag">// 01 — Foundation</div>
+    <h2 class="section-title">WHAT IS<br>DEVOPS?</h2>
+    <p class="section-sub">DevOps is a culture and set of practices that bridges software development (Dev) and IT operations (Ops) to deliver software faster and more reliably.</p>
+    <div class="devops-grid">
+      <div class="devops-card">
+        <div class="devops-icon">🏗️</div>
+        <h3>INFRASTRUCTURE AS CODE</h3>
+        <p>Instead of manually clicking in AWS console, you write code (Terraform) that describes your infrastructure. Version controlled, repeatable, reviewable — just like app code.</p>
+      </div>
+      <div class="devops-card">
+        <div class="devops-icon">🔄</div>
+        <h3>CONTINUOUS INTEGRATION</h3>
+        <p>Every time you push code to GitHub, an automated pipeline runs: tests, builds a Docker image, scans for security issues. No manual steps — all automatic.</p>
+      </div>
+      <div class="devops-card">
+        <div class="devops-icon">🚀</div>
+        <h3>CONTINUOUS DEPLOYMENT</h3>
+        <p>After CI passes, your code is automatically deployed to production. Zero downtime deployments using Kubernetes rolling updates — users never see an outage.</p>
+      </div>
+      <div class="devops-card">
+        <div class="devops-icon">📊</div>
+        <h3>OBSERVABILITY</h3>
+        <p>Know what your app is doing at all times. Prometheus collects metrics, Grafana visualizes them, and alerts wake you up before users notice something is wrong.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPELINE -->
+<section id="pipeline" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-tag">// 02 — Flow</div>
+    <h2 class="section-title">THE CI/CD<br>PIPELINE</h2>
+    <p class="section-sub">This is exactly what happens every time you push code to your GitHub repo.</p>
+    <div class="pipeline">
+      <div class="pipe-step">
+        <div class="pipe-num">01</div>
+        <div class="pipe-name">GIT PUSH</div>
+        <div class="pipe-desc">You push code to GitHub main branch</div>
+      </div>
+      <div class="pipe-arrow">──▶</div>
+      <div class="pipe-step">
+        <div class="pipe-num">02</div>
+        <div class="pipe-name">TRIGGER</div>
+        <div class="pipe-desc">GitHub Actions detects the push automatically</div>
+      </div>
+      <div class="pipe-arrow">──▶</div>
+      <div class="pipe-step">
+        <div class="pipe-num">03</div>
+        <div class="pipe-name">TEST</div>
+        <div class="pipe-desc">Run automated tests — fail fast, fix fast</div>
+      </div>
+      <div class="pipe-arrow">──▶</div>
+      <div class="pipe-step">
+        <div class="pipe-num">04</div>
+        <div class="pipe-name">BUILD</div>
+        <div class="pipe-desc">Docker builds a container image of your app</div>
+      </div>
+      <div class="pipe-arrow">──▶</div>
+      <div class="pipe-step">
+        <div class="pipe-num">05</div>
+        <div class="pipe-name">SCAN</div>
+        <div class="pipe-desc">Trivy checks image for CVEs and vulnerabilities</div>
+      </div>
+      <div class="pipe-arrow">──▶</div>
+      <div class="pipe-step">
+        <div class="pipe-num">06</div>
+        <div class="pipe-name">PUSH</div>
+        <div class="pipe-desc">Image pushed to AWS ECR registry</div>
+      </div>
+      <div class="pipe-arrow">──▶</div>
+      <div class="pipe-step">
+        <div class="pipe-num">07</div>
+        <div class="pipe-name">DEPLOY</div>
+        <div class="pipe-desc">Kubernetes pulls new image, rolls it out live</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW TO USE -->
+<section id="howto">
+  <div class="container">
+    <div class="section-tag">// 03 — Tutorial</div>
+    <h2 class="section-title">HOW TO<br>USE THIS</h2>
+    <p class="section-sub">Follow these exact steps to go from zero to a fully deployed app on AWS with CI/CD. This is exactly what was done to deploy what you're reading right now.</p>
+    <div class="steps">
+
+      <div class="step">
+        <div class="step-num">1</div>
+        <div class="step-body">
+          <span class="step-tag tag-cicd">GITHUB</span>
+          <div class="step-title">GENERATE YOUR DEVOPS FILES</div>
+          <div class="step-desc">Go to the DevOps Forge generator. Select your language, cloud provider, CI/CD platform, and what you want to include. Click Download ZIP. You'll get a complete project structure.</div>
+          <div class="code-block">
+            <span class="comment"># Files you'll get inside the ZIP:</span><br>
+            <span class="cmd">Dockerfile</span>          <span class="comment"># containerize your app</span><br>
+            <span class="cmd">docker-compose.yml</span>  <span class="comment"># run locally</span><br>
+            <span class="cmd">.github/workflows/</span>  <span class="comment"># CI/CD pipeline</span><br>
+            <span class="cmd">terraform/main.tf</span>   <span class="comment"># AWS infrastructure</span><br>
+            <span class="cmd">k8s/</span>                <span class="comment"># Kubernetes manifests</span><br>
+            <span class="cmd">Makefile</span>            <span class="comment"># helpful shortcuts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">2</div>
+        <div class="step-body">
+          <span class="step-tag tag-docker">DOCKER</span>
+          <div class="step-title">PUSH TO GITHUB</div>
+          <div class="step-desc">Create a GitHub repo and push all your files. Add your AWS credentials as GitHub Secrets so the pipeline can push to ECR.</div>
+          <div class="code-block">
+            <span class="cmd">git init</span><br>
+            <span class="cmd">git add .</span><br>
+            <span class="cmd">git commit <span class="flag">-m</span> <span class="val">"initial devops setup"</span></span><br>
+            <span class="cmd">git remote add origin https://github.com/YOU/REPO</span><br>
+            <span class="cmd">git push <span class="flag">-u</span> origin main</span><br><br>
+            <span class="comment"># Add these secrets in GitHub → Settings → Secrets:</span><br>
+            <span class="val">AWS_ACCESS_KEY_ID</span><br>
+            <span class="val">AWS_SECRET_ACCESS_KEY</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">3</div>
+        <div class="step-body">
+          <span class="step-tag tag-terraform">TERRAFORM</span>
+          <div class="step-title">CREATE AWS INFRASTRUCTURE</div>
+          <div class="step-desc">Terraform will create your entire AWS infrastructure — VPC, subnets, EKS cluster, worker nodes, security groups, IAM roles. One command does it all. Takes ~20 minutes.</div>
+          <div class="code-block">
+            <span class="comment"># Create ECR repository first</span><br>
+            <span class="cmd">aws ecr create-repository <span class="flag">--repository-name</span> <span class="val">your-app</span></span><br><br>
+            <span class="comment"># Then create the whole cluster</span><br>
+            <span class="cmd">cd terraform</span><br>
+            <span class="cmd">terraform init</span><br>
+            <span class="cmd">terraform plan</span>    <span class="comment"># review what will be created</span><br>
+            <span class="cmd">terraform apply <span class="flag">--auto-approve</span></span><br><br>
+            <span class="comment"># ⚠️ EKS costs ~$1-5/day. Destroy when done:</span><br>
+            <span class="cmd">terraform destroy <span class="flag">--auto-approve</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">4</div>
+        <div class="step-body">
+          <span class="step-tag tag-k8s">KUBERNETES</span>
+          <div class="step-title">CONNECT KUBECTL TO EKS</div>
+          <div class="step-desc">After Terraform finishes, configure kubectl to talk to your new cluster. Then verify your nodes are Ready.</div>
+          <div class="code-block">
+            <span class="comment"># Connect kubectl to your cluster</span><br>
+            <span class="cmd">aws eks update-kubeconfig <span class="flag">--region</span> <span class="val">us-east-1</span> <span class="flag">--name</span> <span class="val">your-cluster</span></span><br><br>
+            <span class="comment"># Verify nodes are running</span><br>
+            <span class="cmd">kubectl get nodes</span><br><br>
+            <span class="comment"># Expected output:</span><br>
+            <span class="val">ip-10-0-3-xx   Ready   &lt;none&gt;   5m   v1.30.x</span><br>
+            <span class="val">ip-10-0-4-xx   Ready   &lt;none&gt;   5m   v1.30.x</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">5</div>
+        <div class="step-body">
+          <span class="step-tag tag-k8s">KUBERNETES</span>
+          <div class="step-title">DEPLOY YOUR APP</div>
+          <div class="step-desc">Apply your Kubernetes manifests. This creates a Deployment (your app), a Service (networking), and an HPA (auto-scaling). Your app is now live on Kubernetes!</div>
+          <div class="code-block">
+            <span class="comment"># Create secrets your app needs</span><br>
+            <span class="cmd">kubectl create secret generic app-secret \</span><br>
+            <span class="flag">  --from-literal</span>=<span class="val">APP_ENV=production</span><br><br>
+            <span class="comment"># Deploy everything</span><br>
+            <span class="cmd">kubectl apply <span class="flag">-f</span> k8s/deployment.yaml</span><br>
+            <span class="cmd">kubectl apply <span class="flag">-f</span> k8s/service.yaml</span><br>
+            <span class="cmd">kubectl apply <span class="flag">-f</span> k8s/hpa.yaml</span><br><br>
+            <span class="comment"># Watch pods come up</span><br>
+            <span class="cmd">kubectl get pods <span class="flag">-w</span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="step">
+        <div class="step-num">6</div>
+        <div class="step-body">
+          <span class="step-tag tag-cicd">CI/CD</span>
+          <div class="step-title">TRIGGER THE PIPELINE</div>
+          <div class="step-desc">Push any change to GitHub. GitHub Actions automatically runs: test → build → scan → push to ECR. Go to the Actions tab to watch it happen in real time.</div>
+          <div class="code-block">
+            <span class="comment"># Make any change and push</span><br>
+            <span class="cmd">echo <span class="val">"# update"</span> >> README.md</span><br>
+            <span class="cmd">git add . && git commit <span class="flag">-m</span> <span class="val">"trigger pipeline"</span></span><br>
+            <span class="cmd">git push</span><br><br>
+            <span class="comment"># Then watch on GitHub → Actions tab</span><br>
+            <span class="val">✅ test     → passed</span><br>
+            <span class="val">✅ build    → docker image built</span><br>
+            <span class="val">✅ scan     → no critical CVEs</span><br>
+            <span class="val">✅ deploy   → pushed to ECR</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- TOOLS -->
+<section id="tools" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+  <div class="container">
+    <div class="section-tag">// 04 — Stack</div>
+    <h2 class="section-title">THE TOOLS<br>YOU'LL LEARN</h2>
+    <p class="section-sub">Every tool in the DevOps ecosystem, explained simply.</p>
+    <div class="tools-grid">
+      <div class="tool-card">
+        <div class="tool-icon">🐳</div>
+        <div class="tool-name">DOCKER</div>
+        <div class="tool-desc">Package your app and all its dependencies into a container. Runs the same everywhere — your laptop, CI, or AWS.</div>
+        <span class="tool-badge" style="background:rgba(0,180,255,.1);color:var(--blue);">Containerization</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">☸️</div>
+        <div class="tool-name">KUBERNETES</div>
+        <div class="tool-desc">Orchestrates containers at scale. Auto-restarts crashed pods, scales up under load, rolls out updates with zero downtime.</div>
+        <span class="tool-badge" style="background:rgba(176,109,255,.1);color:var(--purple);">Orchestration</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">🏗️</div>
+        <div class="tool-name">TERRAFORM</div>
+        <div class="tool-desc">Infrastructure as Code for AWS/GCP/Azure. Write HCL files, run apply, get real cloud resources. Version controlled infra.</div>
+        <span class="tool-badge" style="background:rgba(255,107,53,.1);color:var(--orange);">IaC</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">🐙</div>
+        <div class="tool-name">GITHUB ACTIONS</div>
+        <div class="tool-desc">CI/CD pipelines defined in YAML. Triggers on push, runs tests, builds images, deploys — fully automated.</div>
+        <span class="tool-badge" style="background:rgba(0,255,136,.1);color:var(--green);">CI/CD</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">🟠</div>
+        <div class="tool-name">AWS EKS</div>
+        <div class="tool-desc">Managed Kubernetes on AWS. AWS handles the control plane — you just run worker nodes and deploy your apps.</div>
+        <span class="tool-badge" style="background:rgba(255,107,53,.1);color:var(--orange);">Cloud</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">📦</div>
+        <div class="tool-name">AWS ECR</div>
+        <div class="tool-desc">Docker registry on AWS. Store, version, and pull your container images. Integrates natively with EKS.</div>
+        <span class="tool-badge" style="background:rgba(255,107,53,.1);color:var(--orange);">Registry</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">📊</div>
+        <div class="tool-name">PROMETHEUS</div>
+        <div class="tool-desc">Collects metrics from your app and cluster every 15 seconds. CPU, memory, request rates, error rates — all stored as time-series.</div>
+        <span class="tool-badge" style="background:rgba(255,107,53,.1);color:var(--orange);">Monitoring</span>
+      </div>
+      <div class="tool-card">
+        <div class="tool-icon">🌐</div>
+        <div class="tool-name">NGINX</div>
+        <div class="tool-desc">Reverse proxy and load balancer. Sits in front of your app, handles SSL termination, rate limiting, and routing.</div>
+        <span class="tool-badge" style="background:rgba(0,255,136,.1);color:var(--green);">Networking</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY CONCEPTS -->
+<section>
+  <div class="container">
+    <div class="section-tag">// 05 — Concepts</div>
+    <h2 class="section-title">KEY<br>CONCEPTS</h2>
+    <p class="section-sub">The mental models every DevOps engineer needs.</p>
+    <div class="concepts">
+      <div class="concept">
+        <div class="concept-letter" style="color:var(--green);">Pod</div>
+        <h3>KUBERNETES POD</h3>
+        <p>The smallest deployable unit in K8s. Usually 1 container. Has its own IP. Ephemeral — if it crashes, K8s creates a new one automatically. Never SSH into a pod to fix things.</p>
+      </div>
+      <div class="concept">
+        <div class="concept-letter" style="color:var(--blue);">IaC</div>
+        <h3>INFRA AS CODE</h3>
+        <p>Your infrastructure is defined in code files, stored in Git, reviewed in PRs. No manual clicking. If you need to recreate everything — just run terraform apply again.</p>
+      </div>
+      <div class="concept">
+        <div class="concept-letter" style="color:var(--orange);">HPA</div>
+        <h3>AUTO SCALING</h3>
+        <p>Horizontal Pod Autoscaler watches CPU/memory. Traffic spike hits 70% CPU? K8s automatically adds more pods. Traffic drops? It scales back down. Zero manual intervention.</p>
+      </div>
+      <div class="concept">
+        <div class="concept-letter" style="color:var(--purple);">SVC</div>
+        <h3>K8S SERVICE</h3>
+        <p>A stable endpoint for your pods. Pods come and go with new IPs — the Service always has the same address and load balances across all healthy pods automatically.</p>
+      </div>
+      <div class="concept">
+        <div class="concept-letter" style="color:var(--green);">ECR</div>
+        <h3>IMAGE REGISTRY</h3>
+        <p>Like GitHub but for Docker images. CI builds your image, tags it with the git SHA, and pushes it. EKS pulls from ECR when deploying. Full image history maintained.</p>
+      </div>
+      <div class="concept">
+        <div class="concept-letter" style="color:var(--blue);">CVE</div>
+        <h3>SECURITY SCANNING</h3>
+        <p>Trivy scans your Docker image for known vulnerabilities before deploying. Critical CVEs fail the pipeline — you fix the base image or dependency before it reaches production.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHEATSHEET -->
+<section id="cheatsheet" style="background:var(--surface);border-top:1px solid var(--border);">
+  <div class="container">
+    <div class="section-tag">// 06 — Reference</div>
+    <h2 class="section-title">COMMANDS<br>CHEATSHEET</h2>
+    <p class="section-sub">The commands you'll use every day as a DevOps engineer.</p>
+    <div class="cheatsheet">
+      <div class="cheat-group">
+        <h3>☸️ KUBECTL</h3>
+        <div class="cheat-item"><span class="cheat-cmd">kubectl get pods</span><span class="cheat-desc">List all running pods</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">kubectl get pods -w</span><span class="cheat-desc">Watch pods in real time</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">kubectl describe pod &lt;name&gt;</span><span class="cheat-desc">Full pod details + events</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">kubectl logs &lt;pod&gt; -f</span><span class="cheat-desc">Stream pod logs live</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">kubectl exec -it &lt;pod&gt; -- sh</span><span class="cheat-desc">Shell into a pod</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">kubectl rollout restart deploy/app</span><span class="cheat-desc">Restart all pods</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">kubectl get hpa</span><span class="cheat-desc">Check autoscaler status</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">kubectl port-forward svc/app 8080:80</span><span class="cheat-desc">Access service locally</span></div>
+      </div>
+      <div class="cheat-group">
+        <h3>🏗️ TERRAFORM</h3>
+        <div class="cheat-item"><span class="cheat-cmd">terraform init</span><span class="cheat-desc">Download providers + modules</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">terraform plan</span><span class="cheat-desc">Preview what will change</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">terraform apply</span><span class="cheat-desc">Create/update infrastructure</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">terraform destroy</span><span class="cheat-desc">Delete all resources ⚠️</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">terraform output</span><span class="cheat-desc">Show output values</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">terraform state list</span><span class="cheat-desc">List tracked resources</span></div>
+      </div>
+      <div class="cheat-group">
+        <h3>🐳 DOCKER</h3>
+        <div class="cheat-item"><span class="cheat-cmd">docker build -t app:latest .</span><span class="cheat-desc">Build image from Dockerfile</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">docker run -p 8000:8000 app</span><span class="cheat-desc">Run container locally</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">docker ps</span><span class="cheat-desc">List running containers</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">docker logs &lt;container&gt; -f</span><span class="cheat-desc">Stream container logs</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">docker exec -it &lt;id&gt; sh</span><span class="cheat-desc">Shell into container</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">docker-compose up -d</span><span class="cheat-desc">Start all services</span></div>
+      </div>
+      <div class="cheat-group">
+        <h3>🟠 AWS CLI</h3>
+        <div class="cheat-item"><span class="cheat-cmd">aws sts get-caller-identity</span><span class="cheat-desc">Who am I logged in as?</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">aws eks update-kubeconfig --name &lt;cluster&gt;</span><span class="cheat-desc">Connect kubectl to EKS</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">aws ecr get-login-password | docker login</span><span class="cheat-desc">Login to ECR</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">aws eks list-clusters</span><span class="cheat-desc">List your EKS clusters</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">aws ec2 describe-instances</span><span class="cheat-desc">List EC2 instances</span></div>
+        <div class="cheat-item"><span class="cheat-cmd">aws configure</span><span class="cheat-desc">Set up credentials</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">DEVOPS FORGE</div>
+  <p>Built with FastAPI · Deployed on AWS EKS · CI/CD via GitHub Actions</p>
+  <p style="margin-top:8px;font-size:12px;">This app itself was deployed using everything you just learned 🚀</p>
+</footer>
+
+</body>
+</html>"""
+
+@app.get("/", response_class=HTMLResponse)
+def root():
+    return HTML
+
+@app.get("/health")
+def health():
+    return {"status": "ok"}
+
+@app.get("/ready")
+def ready():
+    return {"status": "ready"}
+
+@app.get("/api")
+def api():
+    return {"app": "DevOps Forge", "version": "2.0", "status": "running"}
