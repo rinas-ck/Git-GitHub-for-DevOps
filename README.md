@@ -12,107 +12,140 @@ Complete DevOps Study Notes • Hands-on Labs • Real-World Workflows • Inter
   <img src="https://img.shields.io/badge/Hands--On-Labs-2EA44F" alt="Hands-on Labs">
 </p>
 
+A single-file, practical Git & GitHub reference built for Cloud/DevOps Engineers.
+
 </div>
 
 📖 About This Repository
 
-A structured Git & GitHub learning guide for Cloud/DevOps Engineers, from version-control fundamentals to real-world Git workflows and interview preparation.
+This repository is a single-file Git & GitHub study guide designed to take you from version-control fundamentals to practical DevOps workflows and interview readiness.
+
+It keeps the complete study material together in one README.md, while organizing it into clear learning sections so the repository stays clean and easy to navigate.
 
 What this guide covers
 
-✅ Git fundamentals and architecture
+✅ Git fundamentals, architecture and the core workflow
 
-✅ Essential Git commands and daily workflows
+✅ Essential Git commands, history, undo and recovery
 
-✅ Branching, merging, rebase, reset, revert, stash and reflog
+✅ Branching, merging, conflicts, rebase, cherry-pick and stash
 
-✅ GitHub repositories, remotes, forks and pull requests
+✅ GitHub repositories, remotes, forks, pull requests and issues
 
-✅ SSH authentication and repository security
+✅ HTTPS/PAT and SSH authentication
 
-✅ GitHub Actions and CI/CD workflows
+✅ GitHub Actions, CI/CD, secrets and DevOps integration
 
-✅ Git with Docker and Terraform
+✅ Branching strategies, releases, hooks and Git internals
 
-✅ Troubleshooting, hands-on labs and interview scenarios
+✅ Docker + Git and Terraform + Git workflows
 
-🎯 Goal: Build strong practical Git/GitHub skills for Cloud/DevOps interviews and day-to-day DevOps work.
+✅ Hands-on labs, troubleshooting and interview preparation
 
-📚 Table of Contents
+🎯 Goal: Understand the concept → run the command → troubleshoot the failure → explain it in an interview → use it in a real DevOps project.
+
+📚 Topics Covered
+
+Section
+
+Coverage
+
+🧠 Git Fundamentals
+
+VCS, Git, architecture, setup, workflow, commands, branches, merge, rebase, stash, tags, remotes
+
+🤝 GitHub & Collaboration
+
+GitHub, clone/fetch/pull/push, SSH, PRs, forks, upstream, issues
+
+⚙️ DevOps & Advanced Git
+
+Actions, secrets, best practices, branching strategies, releases, hooks, internals
+
+🔍 Important Differences
+
+Fetch vs Pull, Pull vs Clone, Git vs GitHub, Merge vs Rebase, Reset vs Revert, Stash vs Commit
+
+🧪 Hands-on Labs
+
+15 practical labs from basic Git to CI/CD, Docker, Terraform and troubleshooting
+
+💼 Professional Workflow
+
+Commit workflow, pre-push checks and common mistakes
+
+🎯 Interview Preparation
+
+Basic, intermediate, GitHub and scenario-based questions
+
+📋 Cheat Sheet & Practice
+
+Must-know commands, 7-day practice plan and final checklist
+
+🔐 Final Workflow & Security
+
+End-to-end DevOps flow, security rules and final goal
+
+🗺️ Quick Navigation
 
 Git Fundamentals
 
-What is Version Control?
-
-Git
-
-Git Architecture
-
-Installation & Configuration
-
-Local Repository & Basic Workflow
-
-Core Git Commands
-
-Commit, Add & Status
-
-Restore, Reset, Revert & Reflog
-
-Branches, Merge & Conflicts
-
-Rebase, Cherry-Pick & Stash
-
-Tags, Log, Diff & File Operations
-
-.gitignore & Remotes
-
 GitHub & Collaboration
 
-GitHub Repository
-
-Clone, Fetch, Pull & Push
-
-Authentication & SSH
-
-Pull Requests, Forks & Upstream
-
-Issues & GitHub Actions
-
 DevOps & Advanced Git
-
-GitHub Actions, Secrets & Best Practices
-
-Branching Strategies & Releases
-
-Git Internals & Advanced Commands
 
 Important Git Differences
 
 Hands-on Labs
 
-Labs 1–5: Core Git
-
-Labs 6–10: GitHub & CI
-
-Labs 11–15: DevOps Workflows
+Professional Workflow
 
 Interview Preparation
 
-Basic, Intermediate & GitHub Questions
+Cheat Sheet & Practice
 
-Scenario-Based Questions
+Final Workflow & Security
 
-Cheat Sheet & Practice Plan
-
-Final Checklist & Workflow
-
-Security & Final Goal
+Final Takeaway
 
 🧭 Learning Path
 
-Version Control → Git → Architecture → Commands → Branching → Merging → Rebase → GitHub → Pull Requests → GitHub Actions / CI/CD → Docker / Terraform → Troubleshooting → Labs → Interview Preparation
+Version Control
+      ↓
+Git Fundamentals
+      ↓
+Git Architecture & Commands
+      ↓
+Branching & Merging
+      ↓
+Rebase / Stash / Recovery
+      ↓
+GitHub & Collaboration
+      ↓
+Pull Requests & Code Review
+      ↓
+GitHub Actions / CI/CD
+      ↓
+Docker / Terraform Integration
+      ↓
+Troubleshooting
+      ↓
+Hands-on Labs
+      ↓
+Interview Preparation
 
-1. What is Version Control?
+📁 Repository Structure
+
+Git-GitHub-for-DevOps/
+└── README.md    # Complete Git, GitHub & DevOps study guide
+
+💡 Everything is intentionally kept in one README so you can search, learn and revise without jumping between multiple files.
+
+Git Fundamentals
+
+Core version control concepts, Git architecture, commands, history, branching and remotes.
+
+What is Version Control?
 
 Version Control System (VCS) is a tool used to track changes to
 files over time.
@@ -169,7 +202,7 @@ Work can continue without network access.
 
 Changes can later be pushed/pulled between repositories.
 
-2. Git
+Git
 
 Git is a distributed version control system used to track source-code
 changes and collaborate on software projects.
@@ -199,7 +232,7 @@ Maintain release history.
 
 Roll back changes.
 
-3. Git Architecture
+Git Architecture
 
 A basic Git workflow can be understood as:
 
@@ -243,7 +276,7 @@ Remote Repository
 
 A repository hosted on a remote service such as GitHub.
 
-4. Git Installation & Initial Configuration
+Git Installation & Initial Configuration
 
 Check Git:
 
@@ -270,7 +303,7 @@ Set default branch:
 
 git config --global init.defaultBranch main
 
-5. Create a Local Git Repository
+Create a Local Git Repository
 
 Create a project:
 
@@ -289,7 +322,7 @@ This creates a hidden .git directory.
 
 ls -la
 
-6. Basic Git Workflow
+Basic Git Workflow
 
 Create a file:
 
@@ -327,7 +360,7 @@ View staged changes:
 
 git diff --staged
 
-7. Git Commit
+Git Commit
 
 A commit is a snapshot of staged changes.
 
@@ -348,7 +381,7 @@ done
 
 A commit should ideally represent one logical change.
 
-8. Git Add
+Git Add
 
 Add one file:
 
@@ -370,7 +403,7 @@ git add -p is useful when only part of a file should be included in a
 
 commit.
 
-9. Git Status
+Git Status
 
 git status
 
@@ -388,7 +421,7 @@ Changes ready for commit.
 
 Run git status frequently.
 
-10. Git Restore
+Git Restore
 
 Discard changes in a working-tree file:
 
@@ -400,7 +433,7 @@ git restore --staged file.txt
 
 Be careful: restoring a file can permanently remove uncommitted changes.
 
-11. Git Reset
+Git Reset
 
 Soft reset
 
@@ -425,7 +458,7 @@ git reset --hard HEAD~1
 
 Warning: --hard can destroy uncommitted work.
 
-12. Git Revert
+Git Revert
 
 git revert creates a new commit that reverses an earlier commit.
 
@@ -446,7 +479,7 @@ Interview point:
 Prefer git revert for undoing changes already shared with other
 developers because it preserves public history.
 
-13. Git Reflog
+Git Reflog
 
 Reflog records movements of HEAD and branch references.
 
@@ -468,7 +501,7 @@ git reset --hard HEAD@{1}
 
 Use the appropriate reflog entry after checking it carefully.
 
-14. Git Branches
+Git Branches
 
 A branch is an independent line of development.
 
@@ -500,7 +533,7 @@ Force delete:
 
 git branch -D feature-login
 
-15. Why Use Branches?
+Why Use Branches?
 
 Example:
 
@@ -529,7 +562,7 @@ hotfix/*
 
 release/*
 
-16. Branch Merge
+Branch Merge
 
 Suppose:
 
@@ -556,7 +589,7 @@ C---D
 A merge commit may be created depending on the history and merge
 strategy.
 
-17. Fast-Forward Merge
+Fast-Forward Merge
 
 If the target branch has not moved:
 
@@ -570,7 +603,7 @@ A---B---C---D---E main
 
 No separate merge commit is required.
 
-18. Merge Conflict
+Merge Conflict
 
 A conflict happens when Git cannot automatically combine changes.
 
@@ -615,7 +648,7 @@ Stage the resolved file.
 
 Complete the merge.
 
-19. Git Rebase
+Git Rebase
 
 Rebase moves/replays commits onto another base.
 
@@ -657,7 +690,7 @@ Interview rule:
 Do not casually rebase commits that other people are already depending
 on.
 
-20. Interactive Rebase
+Interactive Rebase
 
 Useful for cleaning local commit history:
 
@@ -675,7 +708,7 @@ drop
 Use it before opening a PR when you need to clean up your own local
 commits.
 
-21. Cherry-Pick
+Cherry-Pick
 
 Apply a specific commit from another branch:
 
@@ -689,7 +722,7 @@ You do not want to merge the entire branch.
 
 A hotfix needs to be copied to a release branch.
 
-22. Git Stash
+Git Stash
 
 git stash temporarily saves uncommitted work.
 
@@ -734,7 +767,7 @@ Create a stash with a message:
 
 git stash push -m "login work"
 
-23. Git Tag
+Git Tag
 
 Tags identify important commits, usually releases.
 
@@ -762,7 +795,7 @@ Delete local tag:
 
 git tag -d v1.0.0
 
-24. Git Show
+Git Show
 
 Show commit/tag information:
 
@@ -772,7 +805,7 @@ Show a tag:
 
 git show v1.0.0
 
-25. Git Log --- Important Options
+Git Log --- Important Options
 
 git log
 git log --oneline
@@ -785,7 +818,7 @@ A very useful visual command:
 
 git log --oneline --graph --decorate --all
 
-26. Git Diff
+Git Diff
 
 Working directory vs staging area:
 
@@ -803,7 +836,7 @@ Compare commits:
 
 git diff <commit1> <commit2>
 
-27. Delete / Rename Files
+Delete / Rename Files
 
 Delete a tracked file:
 
@@ -817,7 +850,7 @@ Then commit:
 
 git commit -m "Rename file"
 
-28. .gitignore
+.gitignore
 
 .gitignore tells Git which files should not normally be tracked.
 
@@ -842,7 +875,7 @@ other secrets.
 If a secret was committed, simply adding it to .gitignore does not
 remove it from Git history.
 
-29. Git Remote
+Git Remote
 
 A remote is a named reference to another repository.
 
@@ -868,7 +901,11 @@ git remote show origin
 
 origin is only a conventional name. It is not a special requirement.
 
-30. GitHub
+GitHub & Collaboration
+
+GitHub repositories, authentication, pull requests, forks, issues and collaboration workflows.
+
+GitHub
 
 GitHub is a cloud platform for hosting Git repositories and
 collaborating on software projects.
@@ -884,7 +921,7 @@ GitHub    = Remote hosting + collaboration platform
 
 Other Git hosting platforms include GitLab and Bitbucket.
 
-31. Create a GitHub Repository
+Create a GitHub Repository
 
 Typical workflow:
 
@@ -907,7 +944,7 @@ git branch -M main
 git remote add origin <repository-url>
 git push -u origin main
 
-32. Clone a GitHub Repository
+Clone a GitHub Repository
 
 git clone <repository-url>
 
@@ -923,7 +960,7 @@ git remote -v
 A clone normally gives you the working files plus the local Git
 repository/history.
 
-33. Git Fetch
+Git Fetch
 
 Download remote updates without changing your current working branch:
 
@@ -935,7 +972,7 @@ git fetch --all
 
 Fetch is useful for reviewing remote changes before integrating them.
 
-34. Git Pull
+Git Pull
 
 git pull normally performs a fetch followed by integration of the
 
@@ -955,7 +992,7 @@ git fetch origin
 git log --oneline --graph --all
 git merge origin/main
 
-35. Git Push
+Git Push
 
 Push a local branch:
 
@@ -977,7 +1014,7 @@ Delete a remote branch:
 
 git push origin --delete feature/login
 
-36. Push & Pull Operation --- Practical Flow
+Push & Pull Operation --- Practical Flow
 
 Developer A
 |
@@ -1010,7 +1047,7 @@ git push
 
 Resolve conflicts if necessary.
 
-37. Remote Tracking Branches
+Remote Tracking Branches
 
 Examples:
 
@@ -1025,7 +1062,7 @@ Update remote-tracking references:
 
 git fetch origin
 
-38. GitHub Authentication
+GitHub Authentication
 
 HTTPS
 
@@ -1056,7 +1093,7 @@ git remote -v
 
 Do not store a real token in scripts or source code.
 
-39. SSH Authentication
+SSH Authentication
 
 SSH is a common way to authenticate Git operations without repeatedly
 entering credentials.
@@ -1094,7 +1131,7 @@ Public key  -> Upload to GitHub
 
 Never share the private key.
 
-40. GitHub Pull Request --- PR
+GitHub Pull Request --- PR
 
 A Pull Request is a request to review and merge changes from one branch
 into another.
@@ -1136,7 +1173,7 @@ Discussion.
 
 Linked issues.
 
-41. Fork
+Fork
 
 A fork is your own GitHub copy of another user's repository under
 your account.
@@ -1161,7 +1198,7 @@ Original Repository
 
 A fork is different from simply cloning a repository.
 
-42. Fork vs Clone
+Fork vs Clone
 
 Fork                                Clone
 
@@ -1174,7 +1211,7 @@ Happens on GitHub                   Happens locally
 
 You can fork first and then clone your fork.
 
-43. Upstream Remote
+Upstream Remote
 
 When working from a fork:
 
@@ -1202,7 +1239,7 @@ Then push to your fork:
 
 git push origin main
 
-44. GitHub Issues
+GitHub Issues
 
 Issues can be used for:
 
@@ -1220,7 +1257,11 @@ A DevOps team may use issues to track:
 
 Bug -> Fix -> Branch -> PR -> CI -> Review -> Merge -> Close issue
 
-45. GitHub Actions
+DevOps & Advanced Git
+
+GitHub Actions, secrets, branching strategies, releases, internals, hooks and advanced workflows.
+
+GitHub Actions
 
 GitHub Actions provides CI/CD automation.
 
@@ -1273,7 +1314,7 @@ uses: actions/checkout@v4
 
 run: echo "Run tests here"
 
-46. GitHub Actions and DevOps
+GitHub Actions and DevOps
 
 GitHub can become the trigger/source for a CI/CD pipeline.
 
@@ -1311,7 +1352,7 @@ Azure
 
 GCP
 
-47. GitHub Secrets
+GitHub Secrets
 
 Never hard-code credentials inside workflow files.
 
@@ -1336,7 +1377,7 @@ API_TOKEN: ${{ secrets.API_TOKEN }}
 
 Do not print secrets in logs.
 
-48. GitHub Repository Best Practices
+GitHub Repository Best Practices
 
 A professional repository may contain:
 
@@ -1361,7 +1402,7 @@ terraform/
 ├── providers.tf
 └── README.md
 
-49. README.md
+README.md
 
 A good project README should explain:
 
@@ -1393,7 +1434,7 @@ Troubleshooting.
 
 Author/contact information.
 
-50. Git Branching Strategies
+Git Branching Strategies
 
 Feature Branch Workflow
 
@@ -1427,7 +1468,7 @@ often using short-lived branches and feature flags.
 For modern CI/CD, trunk-based approaches are often preferred where the
 team/process supports them.
 
-51. Feature Flags
+Feature Flags
 
 Feature flags allow functionality to be enabled/disabled without
 deploying completely different code.
@@ -1451,7 +1492,7 @@ Quick rollback of functionality.
 
 Separating deployment from release.
 
-52. Git Release
+Git Release
 
 Typical release flow:
 
@@ -1478,7 +1519,7 @@ Example:
 git tag -a v1.0.0 -m "Release 1.0.0"
 git push origin v1.0.0
 
-53. Git Hooks
+Git Hooks
 
 Git hooks allow scripts to run at Git events.
 
@@ -1505,7 +1546,7 @@ Prevent accidental commits containing secrets.
 Do not rely only on local hooks for security because developers can
 bypass them. Important checks should also run in CI.
 
-54. Git Internals
+Git Internals
 
 Git stores objects inside:
 
@@ -1536,7 +1577,7 @@ Example:
 
 git show HEAD
 
-55. HEAD, Working Tree & Index
+HEAD, Working Tree & Index
 
 Think of:
 
@@ -1556,7 +1597,7 @@ Repository
 
 HEAD points to the current checked-out commit.
 
-56. Detached HEAD
+Detached HEAD
 
 Detached HEAD means HEAD points directly to a commit rather than a
 branch.
@@ -1575,7 +1616,7 @@ If you create useful commits there, create a branch:
 
 git switch -c recovery-branch
 
-57. Git Blame
+Git Blame
 
 Shows which commit/author last modified each line:
 
@@ -1583,7 +1624,7 @@ git blame file.txt
 
 Useful for understanding the history of a specific line.
 
-58. Git Bisect
+Git Bisect
 
 Used to find the commit that introduced a bug.
 
@@ -1615,7 +1656,7 @@ Finish:
 
 git bisect reset
 
-59. Git Clean
+Git Clean
 
 Shows untracked files that would be removed:
 
@@ -1631,7 +1672,7 @@ git clean -fd
 
 Be careful: this can permanently delete untracked files.
 
-60. Git Maintenance Commands to Know
+Git Maintenance Commands to Know
 
 git status
 git log
@@ -1654,7 +1695,11 @@ git reflog
 git blame
 git bisect
 
-61. Important Difference: Fetch vs Pull
+Important Git Differences
+
+Fast interview comparisons and decision points between commonly confused Git commands and concepts.
+
+Important Difference: Fetch vs Pull
 
 git fetch
 
@@ -1674,7 +1719,7 @@ Interview answer:
 Fetch is safer when I want to inspect remote changes first. Pull is
 convenient when I am ready to integrate them.
 
-62. Important Difference: Pull vs Clone
+Important Difference: Pull vs Clone
 
 Clone
 
@@ -1688,7 +1733,7 @@ Used after the repository already exists locally:
 
 git pull
 
-63. Important Difference: Git vs GitHub
+Important Difference: Git vs GitHub
 
 Git:
 
@@ -1714,7 +1759,7 @@ Reviews.
 
 Collaboration.
 
-64. Important Difference: Merge vs Rebase
+Important Difference: Merge vs Rebase
 
 Merge
 
@@ -1746,14 +1791,14 @@ Rewrites commit history.
 
 Dangerous if rewriting commits already shared by others.
 
-65. Important Difference: Reset vs Revert
+Important Difference: Reset vs Revert
 
 reset  -> changes branch history
 revert -> creates a new undo commit
 
 For a public/shared branch, revert is generally the safer choice.
 
-66. Important Difference: Stash vs Commit
+Important Difference: Stash vs Commit
 
 Stash:
 
@@ -1771,7 +1816,11 @@ Represents a logical change.
 
 Can be pushed/shared.
 
-67. Lab 1 --- Basic Git Repository
+Hands-on Labs
+
+Practical labs covering Git, GitHub, CI, Docker, Terraform and real DevOps workflows.
+
+Lab 1 --- Basic Git Repository
 
 Objective
 
@@ -1805,7 +1854,7 @@ Expected:
 
 Working tree clean
 
-68. Lab 2 --- Branching & Merge
+Lab 2 --- Branching & Merge
 
 mkdir git-branch-lab
 cd git-branch-lab
@@ -1835,7 +1884,7 @@ Merge it into main.
 
 Delete the feature branch.
 
-69. Lab 3 --- Merge Conflict
+Lab 3 --- Merge Conflict
 
 Create a branch:
 
@@ -1862,7 +1911,7 @@ git commit
 
 Practice this until you can resolve conflicts confidently.
 
-70. Lab 4 --- Stash
+Lab 4 --- Stash
 
 git switch -c feature-a
 echo "unfinished work" >> app.txt
@@ -1882,7 +1931,7 @@ git stash list
 git stash apply stash@{0}
 git stash drop stash@{0}
 
-71. Lab 5 --- Reset, Revert & Reflog
+Lab 5 --- Reset, Revert & Reflog
 
 Create several commits:
 
@@ -1919,7 +1968,7 @@ Then recover a previous state using the appropriate reflog entry.
 
 Do this only in a disposable lab repository.
 
-72. Lab 6 --- GitHub Remote
+Lab 6 --- GitHub Remote
 
 Create a new empty GitHub repository.
 
@@ -1939,7 +1988,7 @@ Verify:
 git remote -v
 git branch -a
 
-73. Lab 7 --- Clone, Fetch & Pull
+Lab 7 --- Clone, Fetch & Pull
 
 Clone:
 
@@ -1956,7 +2005,7 @@ git pull
 
 Understand exactly what changed before and after each command.
 
-74. Lab 8 --- GitHub Feature Branch & PR
+Lab 8 --- GitHub Feature Branch & PR
 
 Clone your repository.
 
@@ -1987,7 +2036,7 @@ git add .
 git commit -m "Improve README"
 git push -u origin feature/readme-update
 
-75. Lab 9 --- Fork & Upstream
+Lab 9 --- Fork & Upstream
 
 Use a public repository where you have permission to contribute.
 
@@ -2008,7 +2057,7 @@ git push origin main
 
 Then create a feature branch and open a PR to the original repository.
 
-76. Lab 10 --- GitHub Actions CI
+Lab 10 --- GitHub Actions CI
 
 Create:
 
@@ -2044,7 +2093,7 @@ echo "CI passed"
 
 Push it and inspect the Actions tab on GitHub.
 
-77. Lab 11 --- Git + Docker
+Lab 11 --- Git + Docker
 
 Create a simple project:
 
@@ -2064,7 +2113,7 @@ Create a feature branch and modify the Dockerfile.
 
 Push and create a PR.
 
-78. Lab 12 --- Git + Terraform
+Lab 12 --- Git + Terraform
 
 Create:
 
@@ -2090,7 +2139,7 @@ git add .
 git commit -m "Add Terraform infrastructure"
 git push
 
-79. Lab 13 --- Real DevOps Git Workflow
+Lab 13 --- Real DevOps Git Workflow
 
 Simulate a company workflow:
 
@@ -2126,7 +2175,7 @@ Pull latest main.
 
 Repeat until the process becomes natural.
 
-80. Lab 14 --- GitHub Actions + Docker
+Lab 14 --- GitHub Actions + Docker
 
 Build a workflow:
 
@@ -2155,7 +2204,7 @@ Use GitHub Secrets for credentials.
 
 Never hard-code credentials.
 
-81. Lab 15 --- Git Troubleshooting
+Lab 15 --- Git Troubleshooting
 
 Practice solving these deliberately:
 
@@ -2204,7 +2253,11 @@ Merge conflict.
 
 Resolve it and complete the merge.
 
-82. Professional Git Commit Workflow
+Professional Workflow
+
+Daily engineering habits, push checks and common mistakes to avoid.
+
+Professional Git Commit Workflow
 
 A strong daily workflow:
 
@@ -2233,7 +2286,7 @@ Approval
 ↓
 Merge
 
-83. Before Every Push
+Before Every Push
 
 Check:
 
@@ -2262,7 +2315,7 @@ Terraform state.
 
 Build artifacts.
 
-84. Common Git Mistakes
+Common Git Mistakes
 
 Mistake 1 --- Committing secrets
 
@@ -2307,7 +2360,11 @@ git status
 
 first.
 
-85. Interview Questions --- Basic
+Interview Preparation
+
+Basic, intermediate, GitHub and scenario-based questions, plus DevOps interview scenarios.
+
+Interview Questions --- Basic
 
 Q1. What is Git?
 
@@ -2352,7 +2409,7 @@ Q10. What is git status?
 
 It displays the state of the working tree and staging area.
 
-86. Interview Questions --- Intermediate
+Interview Questions --- Intermediate
 
 Q11. Difference between git fetch and git pull?
 
@@ -2402,7 +2459,7 @@ Q20. What is a remote?
 
 A named reference to another Git repository, often hosted on GitHub.
 
-87. Interview Questions --- GitHub
+Interview Questions --- GitHub
 
 Q21. What is a Pull Request?
 
@@ -2442,7 +2499,7 @@ Q28. How are secrets handled in GitHub Actions?
 Store them in GitHub Secrets or appropriate environment/organization
 secret stores and reference them securely in workflows.
 
-88. Interview Questions --- Scenario Based
+Interview Questions --- Scenario Based
 
 Q29. Your push is rejected. What do you do?
 
@@ -2498,7 +2555,7 @@ Q35. Why should you avoid force-pushing main?
 It can rewrite shared history and disrupt other developers and
 automation.
 
-89. DevOps Interview Scenario
+DevOps Interview Scenario
 
 Question
 
@@ -2538,7 +2595,11 @@ Deployment
 
 Git is therefore an important foundation for CI/CD.
 
-90. Must-Know Commands Cheat Sheet
+Cheat Sheet & Practice
+
+Command reference, seven-day practice plan and final interview checklist.
+
+Must-Know Commands Cheat Sheet
 
 Setup
 
@@ -2623,7 +2684,7 @@ git reflog
 git diff
 git remote -v
 
-91. 7-Day Git & GitHub Practice Plan
+7-Day Git & GitHub Practice Plan
 
 Day 1 --- Fundamentals
 
@@ -2794,7 +2855,7 @@ delete branch
 ↓
 pull latest main
 
-92. Final Interview Checklist
+Final Interview Checklist
 
 Before a Git/GitHub interview, make sure you can explain and perform
 these without copying commands from the internet:
@@ -2887,7 +2948,11 @@ Production rollback using revert.
 
 Recovering lost commits with reflog.
 
-93. The One Workflow to Remember
+Final Workflow & Security
+
+The complete workflow, security rules and the final DevOps mental model.
+
+The One Workflow to Remember
 
 GITHUB
 |
@@ -2955,7 +3020,7 @@ MERGE
 ↓
 DEPLOY
 
-94. Important Security Rules
+Important Security Rules
 
 Never commit passwords.
 
@@ -2978,7 +3043,7 @@ Scan repositories for secrets.
 Do not assume deleting a secret from the latest commit removes it
 from history.
 
-95. Final Goal
+Final Goal
 
 For a Cloud/DevOps Engineer, Git should not be treated as only a
 list of commands.
@@ -3021,8 +3086,6 @@ Understand the concept → run the command → troubleshoot the failure
 
 For a Cloud/DevOps Engineer, Git should not be treated as only a list of commands.
 
-You should be able to:
-
 Understand the concept → run the command → troubleshoot the failure → explain it in an interview → use it in a real DevOps project.
 
 🚀 DevOps End-to-End Flow
@@ -3056,7 +3119,6 @@ Cloud / Kubernetes / Production
 👨‍💻 Author
 
 Mohammed Rinas
-
 Cloud / DevOps Engineer — Learning, Building & Practicing
 
 This repository is maintained as a practical study resource for Git, GitHub and DevOps workflows.
