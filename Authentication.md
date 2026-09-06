@@ -7,7 +7,7 @@ rules.
 
 ## 📚 Contents
 
--   [GitHub Authentication](#-github-authentication)
+-   [. GitHub Authentication](#-github-authentication)
 -   [SSH Authentication](#-ssh-authentication)
 -   [GitHub Secrets](#-github-secrets)
 -   [Important Security Rules](#-important-security-rules)
