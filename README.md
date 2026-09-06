@@ -1,4 +1,4 @@
-                # 🚀 Git & GitHub for DevOps
+# 🚀 Git & GitHub for DevOps
 
 <p align="center">
   <strong>Complete Git & GitHub Study Notes for DevOps Engineers</strong>
