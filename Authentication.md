@@ -7,14 +7,14 @@ rules.
 
 ## 📚 Contents
 
--   [38. GitHub Authentication](#38-github-authentication)
--   [39. SSH Authentication](#39-ssh-authentication)
--   [47. GitHub Secrets](#47-github-secrets)
--   [94. Important Security Rules](#94-important-security-rules)
+-   [GitHub Authentication](#-github-authentication)
+-   [SSH Authentication](#-ssh-authentication)
+-   [GitHub Secrets](#-github-secrets)
+-   [Important Security Rules](#-important-security-rules)
 
 ------------------------------------------------------------------------
 
-## 38. GitHub Authentication
+## GitHub Authentication
 
 HTTPS
 
@@ -47,7 +47,7 @@ Do not store a real token in scripts or source code.
 
 ------------------------------------------------------------------------
 
-## 39. SSH Authentication
+## SSH Authentication
 
 SSH is a common way to authenticate Git operations without repeatedly
 entering credentials.
@@ -86,7 +86,7 @@ Never share the private key.
 
 ------------------------------------------------------------------------
 
-## 47. GitHub Secrets
+## GitHub Secrets
 
 Never hard-code credentials inside workflow files.
 
